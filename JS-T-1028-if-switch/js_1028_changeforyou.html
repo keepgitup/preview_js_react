@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習四</title>
+    <script>
+        // 練習四
+        // input beverage 飲料金額
+        // input money 付款金額
+        // 1.剛剛好 2找多少 3不好意思 錢不夠
+        alert("等會輸入完,記得開open with liveserver 然後按F12檢查");
+        let beverage = prompt("飲料金額", 0);
+        // 老師寫法很特別 在後面""字串處擺 "零"-- 頗有html placeholder的功能
+        let money = prompt("付款金額", 0);
+        let consequence = money - beverage;
+        if (consequence > 0) {
+            console.log("很夠付錢~"+ "找錢金額為 " + consequence + "元");
+        }
+        else if (consequence == 0) {
+            console.log("剛剛好" + consequence + "元");
+        }
+        else {
+            console.log("錢不夠");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

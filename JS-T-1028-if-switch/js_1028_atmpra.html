@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM-practice</title>
+    <script>
+        let insertCard = true;
+        let inputPassword = prompt("請輸入6位數字密碼", 0);
+        let repeatPassowrd = prompt("請再次輸入6位數字密碼", 0);
+        let balance_deposit = 20000//存款尚餘餘額
+        if (inputPassword === repeatPassowrd) {
+            let todayRequest = prompt("請輸入數字選項-1一般提款.2一般存款.3-戶頭轉帳.4-緊急現金救援" , 0)
+            // "請輸入數字選項" + 1 + ".一般提款" + " 或 " + 2 + ".一般存款 或 " + 3 + ".戶頭轉帳 或 " + 4 + ".緊急現金救援"
+            switch (todayRequest) {
+                case 1://一般提款
+                    let withDraw = prompt("請輸入提款金額", 0);
+                    if (balance_deposit < 30000) {
+                        console.log("可以提款喔");
+                        balance_deposit -= parseInt(withDraw);
+                        console.log("存款還剩下 " + balance_deposit + "元");
+                    }
+                    else {
+                        console.log("I am so sorry.." + "你還剩下" + balance_deposit + "元" + ",這個月你花了太多了,下個月發薪水後再提款吧");
+                    }
+                    break;
+
+                case 2://一般存款
+                    let newDeposit = prompt("請輸入存款金額", 0);
+                    balance_deposit += parseInt(newDeposit);
+                    console.log("存款還剩下 " + balance_deposit + "元");
+                    break;
+
+                case 3://一般轉帳
+                    let otherAccount = prompt("請輸入同行帳戶戶號", 0);
+                    let newTransfer = 10000;
+                    if (otherAccoun = true) {
+                        let otherAccount = parseInt(otherAccount);
+                        balance_deposit -= parseInt(newTransfer);
+                        console.log("存款還剩下 " + balance_deposit + "元");
+                    }
+                    else {
+                        console.log("轉帳異常");
+                    }
+                    break;
+                case 4://緊急現金支援
+                    console.log("請洽客服專線");
+                    break;
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>
