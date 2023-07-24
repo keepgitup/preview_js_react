@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+
+  <script>
+    const ages = [32, 33, 16, 40];
+
+    console.log(ages.find((e) => e > 32));
+    // 這個箭頭真像 that子具
+    // 輸出： 33
+
+    const boardGame = [
+      {
+        title: "黯淡港灣",
+        rating: 8.4,
+      },
+      {
+        title: "瘟疫危機",
+        rating: 8.4,
+      },
+      {
+        title: "精靈島",
+        rating: 8.1,
+      },
+      {
+        title: "拼布對決",
+        rating: 7.6,
+      },
+    ];
+
+    cons;
+    console.log(boardGame.find((e) => e.rating < 8.2));
+    // 輸出：{title: '精靈島', rating: 8.1}
+  </script>
+</html>

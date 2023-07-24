@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .tab-box {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+    }
+
+    .tab-box section {
+      padding: 1rem;
+      min-height: 5rem;
+      background-color: bisque;
+    }
+
+    .tab-box__header {
+      display: flex;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .tab-box__header > li {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .tab-box__header > li.active {
+      color: blueviolet;
+    }
+  </style>
+
+  <body>
+    <article class="tab-box" id="tab-box">
+      <ol class="tab-box__header">
+        <li onclick="triggerSection(event,'targetOne')" id="defaultOpen">
+          標籤一
+        </li>
+        <li onclick="triggerSection(event,'targetTwo')">標籤二</li>
+        <li onclick="triggerSection(event,'targetThree')">標籤三</li>
+      </ol>
+      <section id="targetOne">標籤項目一</section>
+      <section id="targetTwo">標籤項目二</section>
+      <section id="targetThree">標籤項目三</section>
+    </article>
+  </body>
+  <script>
+    // 取得全部需要使用的 UI
+    var tabBox = document.getElementById("tab-box");
+    var tabBoxTab = document.querySelectorAll("li");
+    var tabBoxSection = document.querySelectorAll("section");
+
+    var triggerSection = function (event, target) {
+      // 消除全部的 Section 顯示
+      tabBoxSection.forEach(function (element) {
+        element.style.display = "none";
+      });
+
+      // 取得目標實體
+      var targetElement = document.getElementById(target);
+
+      // 顯示目標
+      targetElement.style.display = "block";
+
+      // 清除 tab 上的樣式並且將目前點擊的目標加上 active
+      tabBoxTab.forEach(function (element) {
+        element.classList = "";
+      });
+      event.currentTarget.className += " active";
+    };
+
+    // 預設出發此名稱的點擊事件
+    document.getElementById("defaultOpen").click();
+  </script>
+</html>

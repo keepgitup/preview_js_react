@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    .height-line {
+      border-bottom: 1px solid #ffccee;
+    }
+  </style>
+
+  <body>
+    <button onclick="addColor()">點擊我修改顏色</button>
+    <button onclick="addClass()">點擊我新增樣式類別</button>
+
+    <div id="myDiv">This is my DIV element.</div>
+    <span id="mySpan">This is my SPAN element.</span>
+  </body>
+
+  <script>
+    // 建立實體物件
+    var myDiv = document.getElementById("myDiv");
+    var mySpan = document.getElementById("mySpan");
+
+    // 新增顏色功能
+    var addColor = function () {
+      myDiv.style.color = "red";
+    };
+
+    // 新增樣式功能
+    var addClass = function () {
+      myDiv.className = "height-line";
+      mySpan.className = "height-line";
+    };
+
+    // 帶入變數的顏色修改
+    // var addColor = function (color) {
+    //   myDiv.style.color = color;
+    // };
+    var changeTargetColor = function (target, color) {
+      var targetElement = document.getElementById(target);
+      targetElement.style.color = color;
+    };
+
+    changeTargetColor("mySpan", "blue");
+  </script>
+</html>

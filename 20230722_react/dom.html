@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <button onclick="myFunction()">點擊我</button>
+
+    <div id="myDiv" class="div div-style" onclick="">
+      This is my DIV element.
+    </div>
+  </body>
+  <script>
+    const test = document.querySelectorAll(".div");
+    // div的log 有classname
+    console.log(window);
+    // 整個windows的log
+
+    // 取得物件實體
+    var myDiv = document.getElementById("myDiv");
+
+    // 可以看到這個實體內的「文字內容」
+    console.log(myDiv.textContent);
+
+    // 建立一個用於互動的函示
+    function myFunction() {
+      if (myDiv.style.display === "none") {
+        myDiv.style.display = "block";
+      } else {
+        myDiv.style.display = "none";
+      }
+    }
+
+    // 改個寫法並用三元運算式
+    //  const myFunction = function(){
+    //      myDiv.style.display === 'none'
+    //        ? (myDiv.style.display = 'block')
+    //        : (myDiv.style.display = 'none');
+    //  }
+  </script>
+</html>
