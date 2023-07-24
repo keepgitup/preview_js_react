@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <style>
+      .book-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        perspective: 600px;
+      }
+
+      @keyframes initAnimation {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(-11deg);
+        }
+      }
+
+      .book {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        transform-style: preserve-3d;
+        transform: rotateY(-11deg);
+        transition: 1s ease;
+        animation: 1s ease 0s 1 initAnimation;
+      }
+
+      .book:hover {
+        transform: rotateY(0deg);
+      }
+
+      .book > :first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: red;
+        width: 300px;
+        height: 300px;
+        transform: translateZ(25px);
+        background-color: #01060f;
+        border-radius: 0 2px 2px 0;
+        box-shadow: 5px 5px 20px #666;
+      }
+
+      .book::before {
+        position: absolute;
+        content: " ";
+        background-color: blue;
+        left: 0;
+        top: 3px;
+        width: 48px;
+        height: 294px;
+        transform: translateX(172px) rotateY(90deg);
+        background: linear-gradient(
+          90deg,
+          #fff 0%,
+          #f9f9f9 5%,
+          #fff 10%,
+          #f9f9f9 15%,
+          #fff 20%,
+          #f9f9f9 25%,
+          #fff 30%,
+          #f9f9f9 35%,
+          #fff 40%,
+          #f9f9f9 45%,
+          #fff 50%,
+          #f9f9f9 55%,
+          #fff 60%,
+          #f9f9f9 65%,
+          #fff 70%,
+          #f9f9f9 75%,
+          #fff 80%,
+          #f9f9f9 85%,
+          #fff 90%,
+          #f9f9f9 95%,
+          #fff 100%
+        );
+      }
+
+      .book::after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: " ";
+        width: 300px;
+        height: 300px;
+        transform: translateZ(-25px);
+        background-color: #01060f;
+        border-radius: 0 2px 2px 0;
+        box-shadow: -10px 0 50px 10px #666;
+      }
+    </style>
+    <script>
+      // const person = new Object();
+      const person = {
+        name: "Alex",
+        age: 25,
+      };
+
+      console.log(person);
+      // 輸出：{name: 'Alex', age: 25}
+
+      const book = document.querySelector(".book-container");
+
+      const gameObject = {
+        name: "Spirit Island",
+        chineseName: "精靈島 / 靈跡島",
+        type: "合作遊戲",
+        weight: 4.04,
+        rating: 8.4,
+        bggUrl: "https://boardgamegeek.com/boardgame/162886/spirit-island",
+        coverUrl:
+          "https://cf.geekdo-images.com/a13ieMPP2s0KEaKNYmtH5w__itemrep/img/OxbJV22OSI7wvhs0MFn1rF4tHz4=/fit-in/246x300/filters:strip_icc()/pic3615739.png",
+        author: {
+          name: "R. Eric Reuss",
+          age: 33,
+          email: "test@foo.com",
+          directions:
+            "Eric Reuss is a board game designer living in the greater Boston area",
+        },
+        aboutGame: function () {
+          return `這個遊戲叫${this.name}`;
+        },
+      };
+
+      const boardGame = [
+        {
+          title: "黯淡港灣",
+          rating: 8.4,
+        },
+        {
+          title: "瘟疫危機",
+          rating: 8.4,
+        },
+        {
+          title: "精靈島",
+          rating: 8.1,
+        },
+        {
+          title: "拼布對決",
+          rating: 7.6,
+        },
+      ];
+
+      // console.log(boardGame.map((e) => e.rating > 8));
+      // 輸出：[true, true, true, false]
+      console.log(boardGame.map((e) => e.rating > 8));
+
+      console.log(boardGame.map((e) => (e) => e.title + "中文版"));
+      // 輸出：['黯淡港灣中文版', '瘟疫危機中文版', '精靈島中文版', '拼布對決中文版']
+
+      console.log(boardGame.map((e) => `<p>標題：${e.title}</p>`));
+      // 輸出：['<p>標題：黯淡港灣中文版</p>', '<p>標題：瘟疫危機中文版</p>', '<p>標題：精靈島中文版</p>', '<p>標題：拼布對決中文版</p>']
+
+      // 寫入到頁面中
+      document.write(boardGame.map((e) => `<p>標題：${e.title}</p>`).join(""));
+    </script>
+  </body>
+</html>
