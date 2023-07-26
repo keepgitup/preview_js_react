@@ -61,23 +61,27 @@
     var tabBoxTab = document.querySelectorAll("li");
     var tabBoxSection = document.querySelectorAll("section");
 
-    var triggerSection = function (event, target) {
-      // 消除全部的 Section 顯示
-      tabBoxSection.forEach(function (element) {
-        element.style.display = "none";
-      });
+    var triggerSection = function(event, target) {
+        // 消除全部的 Section 顯示
+        tabBoxSection.forEach(function(element) {
+            element.style.display = "none";
+        });
 
-      // 取得目標實體
-      var targetElement = document.getElementById(target);
 
-      // 顯示目標
-      targetElement.style.display = "block";
 
-      // 清除 tab 上的樣式並且將目前點擊的目標加上 active
-      tabBoxTab.forEach(function (element) {
+    }
+
+    // 取得目標實體
+    var targetElement = document.getElementById(target);
+
+    // 顯示目標
+    targetElement.style.display = "block";
+
+    // 清除 tab 上的樣式並且將目前點擊的目標加上 active
+    tabBoxTab.forEach(function(element) {
         element.classList = "";
-      });
-      event.currentTarget.className += " active";
+    });
+    event.currentTarget.className += " active";
     };
 
     // 預設出發此名稱的點擊事件

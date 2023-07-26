@@ -106,11 +106,17 @@
         age: 25,
       };
 
+      const person1 = {
+        name: "Jane",
+        age: 24,
+      };
       console.log(person);
       // 輸出：{name: 'Alex', age: 25}
 
-      const book = document.querySelector(".book-container");
+      console.log(person1);
 
+      // const book = document.querySelector(".book-container");
+      const book = document.querySelector(".book-container");
       const gameObject = {
         name: "Spirit Island",
         chineseName: "精靈島 / 靈跡島",
@@ -168,9 +174,14 @@
       // 輸出：['黯淡港灣中文版', '瘟疫危機中文版', '精靈島中文版', '拼布對決中文版']
       console.log(boardGame.map((e) => e.title + "in chinese ver"));
       const prices = [8, 9, 10];
-      const discount = console.log(prices.map((prices) => prices * 100));
+      // const discount = console.log(prices.map((prices) => prices * 100));
+      //把上面console拿掉後..如下
+
+      const discount = prices.map((prices) => prices * 80);
+      //這樣就不會有undefined的問題
+
       console.log(`prices is ${prices}`);
-      console.log(discount);
+      console.log(`discount is ${discount}`);
       console.log(boardGame.map((e) => `<p>標題：${e.title}</p>`));
       // 輸出：['<p>標題：黯淡港灣中文版</p>', '<p>標題：瘟疫危機中文版</p>', '<p>標題：精靈島中文版</p>', '<p>標題：拼布對決中文版</p>']
 
