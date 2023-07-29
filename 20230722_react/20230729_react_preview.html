@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 假設這些資料來至於外部 api，而我們需要其中的一部分內容進行顯示
+      const turtle = {
+        name: "鑽石 🐢",
+        legs: 4,
+        shell: true,
+        type: "北美鑽紋龜",
+        meal: 10,
+        diet: "生魚片？",
+      };
+
+      function feed(animal) {
+        return `餵食 ${animal.name} ${animal.meal} 小片 ${animal.diet}`;
+      }
+
+      // 更良好的解答
+
+      // function feed({ name, meal, diet }) {
+      // 	return `餵食 ${name} ${meal} 小片 ${diet}`;
+      // }
+
+      // 或者
+
+      // function feed(animal) {
+      // 	const { name, meal, diet } = animal;
+      // 	return `餵食 ${name} ${meal} 小片 ${diet}`;
+      // }
+
+      console.log(feed(turtle));
+
+      // 假設這些資料來至於外部 api，而我們需要其中的一部分內容進行顯示
+      var randomNumber = function (pointNumber, maxNumber) {
+        let text = "產出亂碼 - ";
+        //Set比較像是進階的array,特性是不重複,一般array可以重複
+        let numberArray = new Set();
+
+        // 印出的總數，不可大於最大數字的範圍
+        if (pointNumber > maxNumber) return "請輸入最大範圍要大於總筆數";
+
+        // 做一個 while 迴圈，判斷 numberArray 的 size 小於 pointNumber 的的，條件成立並運行裡面的程式
+        while (numberArray.size < pointNumber) {
+          // 幫助個 Set 物件新增一個隨機的範圍內亂數
+          numberArray.add(Math.ceil(Math.random() * maxNumber));
+        }
+
+        var User = function (name) {
+          this.name = name;
+        };
+
+        console.log(new User("Test"));
+
+        // 幫 text 這個變數，加上 numberArray 分隔插入、的字串，但因為 Set 物件無法使用 join 的操作，因此先將它轉換成 Array
+        // text += Array.from(numberArray).join("、");
+        text += Array.from(numberArray).join("`");
+        return text;
+      };
+      //[ask]what's pointnumber
+      console.log(randomNumber(6, 20));
+    </script>
+  </body>
+</html>
