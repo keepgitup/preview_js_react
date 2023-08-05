@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Hello World</title>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
@@ -8,45 +9,30 @@
 
     <!-- 不要使用他在正式的專案上 -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="root"></div>
     <script type="text/babel">
-      const { useState } = React;
-      const Navbar = ({ setCurrentPage }) => {
-        const navItem = [
-          { name: "Home", url: "/" },
-          { name: "About", url: "/about" },
-          { name: "Contact", url: "/contact" },
-        ];
-        return (
-          <nav>
+        const { useState } = React; const Navbar = ({ setCurrentPage }) => { const navItem = [ { name: "Home", url: "/" }, { name: "About", url: "/about" }, { name: "Contact", url: "/contact" }, ]; return (
+        <nav>
             {navItem.map((item) => (
-              <a key={item.name} onClick={() => setCurrentPage(item.url)}>
+            <a key={item.name} onClick={()=> setCurrentPage(item.url)}>
                 {item.name}
-              </a>
-            ))}
-          </nav>
-        );
-      };
-      const Footer = () => {
-        return;
-        <footer>Footer</footer>;
-      };
-      const App = () => {
-        const [currentPage, setCurrentPage] = useState(1);
-        return (
-          <main>
-            <Navbar setCurrentPage={setCurrentPage} />{" "}
-            {currentPage === "/" && <h1>Home</h1>}{" "}
-            {currentPage === "/about" && <h1>About</h1>}{" "}
-            {currentPage === "/contact" && <h1>Contact</h1>}
+              </a> ))}
+        </nav>
+        ); }; const Footer = () => { return;
+        <footer>Footer</footer>; }; const App = () => { const [currentPage, setCurrentPage] = useState(1); return (
+        <main>
+            <Navbar setCurrentPage={setCurrentPage} />{" "} {currentPage === "/" &&
+            <h1>Home</h1>}{" "} {currentPage === "/about" &&
+            <h1>About</h1>}{" "} {currentPage === "/contact" &&
+            <h1>Contact</h1>}
             <Footer />
-          </main>
-        );
-      };
-      ReactDOM.render(<App />, document.getElementById("root"));
+        </main>
+        ); }; ReactDOM.render(
+        <App />, document.getElementById("root"));
     </script>
-  </body>
+</body>
+
 </html>

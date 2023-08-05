@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Hello World</title>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <!-- 不要使用他在正式的專案上 -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="root"></div>
     <script type="text/babel">
         const { useState } = React; const App = () => { const [count, setCount] = useState(0); // 因為實際上為了效能，React 會將多次調用的 setCount 合併成一次，因此只有最後一次的 count 會被使用 const numberCount_1 = () => { console.log('我正在執行 numberCount_1'); console.log(count); setCount(count+
@@ -39,5 +40,6 @@
 
         <App />, document.getElementById('root'));
     </script>
-  </body>
+</body>
+
 </html>

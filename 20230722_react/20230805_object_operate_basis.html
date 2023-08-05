@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Hello World</title>
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
@@ -8,28 +9,16 @@
 
     <!-- 不要使用他在正式的專案上 -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="root"></div>
     <script type="text/babel">
-      const { useState } = React;
-      const App = () => {
-        const [personObject, setPersonObject] = useState({
-          firstName: "John",
-          lastName: "Doe",
-          age: 18,
-          email: "foo@gmail.com",
-        });
-        const function_01 = () => {};
-        const function_02 = () => {};
-        const function_03 = () => {};
-        const function_04 = () => {};
-        return (
-          <main>
+        const { useState } = React; const App = () => { const [personObject, setPersonObject] = useState({ firstName: "John", lastName: "Doe", age: 18, email: "foo@gmail.com", }); const function_01 = () => {}; const function_02 = () => {}; const function_03 =
+        () => {}; const function_04 = () => {}; return (
+        <main>
             <nav>
-              <button
-                onClick={() =>
+                <button onClick={()=>
                   setPersonObject({
                     firstName: "江",
                     lastName: "星誌",
@@ -40,23 +29,23 @@
               >
                 按鈕一
               </button>
-              <button onClick={() => function_01()}>按鈕二</button>
-              <button onClick={() => function_02()}>按鈕三</button>
-              <button onClick={() => function_03()}>按鈕四</button>
-              <button onClick={() => function_04()}>按鈕五</button>
+                <button onClick={()=> function_01()}>按鈕二</button>
+                <button onClick={()=> function_02()}>按鈕三</button>
+                <button onClick={()=> function_03()}>按鈕四</button>
+                <button onClick={()=> function_04()}>按鈕五</button>
             </nav>
 
             <br />
             <p>
-              姓名：{personObject.firstName} {personObject.lastName}
-              <br /> 年紀：{personObject.age}
-              <br /> 信箱：{personObject.email}
-              <br />
+                姓名：{personObject.firstName} {personObject.lastName}
+                <br /> 年紀：{personObject.age}
+                <br /> 信箱：{personObject.email}
+                <br />
             </p>
-          </main>
-        );
-      };
-      ReactDOM.render(<App />, document.getElementById("root"));
+        </main>
+        ); }; ReactDOM.render(
+        <App />, document.getElementById("root"));
     </script>
-  </body>
+</body>
+
 </html>

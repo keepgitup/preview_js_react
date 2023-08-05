@@ -1,40 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <title>Hunt React test</title>
     <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
     <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
     <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
     <style>
-      .foo {
-        color: red;
-      }
+        .foo {
+            color: red;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <!-- <div id="root"></div> -->
     <!-- <div id="example">another example test</div> -->
     <div id="example3">3rd step: if change the example element2</div>
     <script type="text/babel">
-      const element0 = <h1 className="foo">about test</h1>; // ReactDOM.render(element, document.getElementById("root")); const element1 =
-      <h1 class="foo">about test2 </h1>;
-      ReactDOM.render(element, document.getElementById("root"));
-      ReactDOM.render(element, document.getElementById("example"));
-      function tick() {
-        const element2 = (
-          <div>
+        const element0 =
+        <h1 className="foo">about test</h1>; // ReactDOM.render(element, document.getElementById("root")); const element1 =
+        <h1 class="foo">about test2 </h1>; ReactDOM.render(element, document.getElementById("root")); ReactDOM.render(element, document.getElementById("example")); function tick() { const element2 = (
+        <div>
             <h1>hey test!</h1>
             <h2>iga hai {new Date().toLocaleTimeString()}.</h2>
-          </div>
-        );
-        ReactDOM.render(element2, document.getElementById("example"));
-      }
-      setInterval(tick, 1);
-      const App = () => {
-        const [personObject, setPersonObject] = useState({ firstName: "John" });
-      };
+        </div>
+        ); ReactDOM.render(element2, document.getElementById("example")); } setInterval(tick, 1); const App = () => { const [personObject, setPersonObject] = useState({ firstName: "John" }); };
     </script>
-  </body>
+</body>
+
 </html>
