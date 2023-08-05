@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- 不要使用他在正式的專案上 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        margin: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const { useState } = React; const ArrayOperateComponent = () => { const [numberArray, setNumberArray] = useState([1, 2, 3, 4]); // 這樣寫是不行的，因為 React 會認為你沒有改變陣列的內容 const unableHandleSetNumberArray = () => { numberArray.push(5); console.log(numberArray);
+      setNumberArray(numberArray); }; // const setNumberArray_1 = () => { setNumberArray([...numberArray, numberArray.length + 1]); }; // 這樣寫是可以的，因為 React 會認為你改變陣列的內容 const setNumberArray_2 = () => { setNumberArray((prevNumberArray) => { return [...prevNumberArray,
+      numberArray.length + 1]; }); }; // 這個一樣只能觸發一次 const setNumberArray_3 = () => { setNumberArray([...numberArray, numberArray.length + 1]); setNumberArray([...numberArray, numberArray.length + 1]); setNumberArray([...numberArray, numberArray.length
+      + 1]); setNumberArray([...numberArray, numberArray.length + 1]); }; // 這樣可以觸發多次，但在同一時間的 length 會是一樣的 const setNumberArray_4 = () => { setNumberArray((prevNumberArray) => { return [...prevNumberArray, numberArray.length + 1]; }); setNumberArray((prevNumberArray)
+      => { return [...prevNumberArray, numberArray.length + 1]; }); }; return (
+      <article>
+          <h1>陣列控制: </h1>
+          <nav>
+              <button onClick={()=> setNumberArray([1, 2, 3, 4, 5])}>
+              賦予它新陣列
+            </button>
+              <button onClick={()=> unableHandleSetNumberArray()}>
+              用函式處理
+            </button>
+              <button onClick={()=> setNumberArray_1()}>這要調度會成功</button>
+              <button onClick={()=> setNumberArray_2()}>這也是一種做法</button>
+              <button onClick={()=> setNumberArray_3()}>這將只調度一次</button>
+              <button onClick={()=> setNumberArray_4()}>
+              這會成功觸發兩次
+            </button>
+          </nav>
+          <p>陣列內容：{numberArray.join('、')}</p>
+      </article>
+      ); }; const ObjectOperateComponent = () => { const [personObject, setPersonObject] = useState({ firstName: 'John', lastName: 'Doe', age: 18, email: 'foo@gmail.com', }); // 這樣寫是不行的，因為 React 會認為你沒有改變物件的內容 const unableHandleSetPersonObject = () => { personObject.firstName
+      = 'iffy'; console.log(personObject); setPersonObject(personObject); }; // 這樣寫是可以的，因為 React 會認為你改變物件的內容 const setPersonObject_1 = () => { setPersonObject({ ...personObject, age: personObject.age + 1, }); }; // 這樣寫是可以的，因為 React 會認為你改變物件的內容 const
+      setPersonObject_2 = () => { setPersonObject((prevObject) => { return { ...personObject, age: prevObject.age + 1, }; }); }; // 這個一樣只能觸發一次 const setPersonObject_3 = () => { setPersonObject({ ...personObject, age: personObject.age + 1 }); setPersonObject({
+      ...personObject, age: personObject.age + 1 }); setPersonObject({ ...personObject, age: personObject.age + 1 }); setPersonObject({ ...personObject, age: personObject.age + 1 }); }; // 這樣可以觸發多次，但在同一時間的 length 會是一樣的 const setPersonObject_4 = () =>
+      { setPersonObject((prevObject) => { return { ...personObject, age: prevObject.age + 1 }; }); setPersonObject((prevObject) => { return { ...personObject, age: prevObject.age + 1 }; }); }; return (
+      <article>
+          <h1>物件控制: </h1>
+          <nav>
+              <button onClick={()=>
+                setPersonObject({
+                  firstName: 'Alex',
+                  lastName: 'Doe',
+                  age: 20,
+                  email: 'boo@gmail.com',
+                })
+              }
+            >
+              賦予它新物件
+            </button>
+              <button onClick={()=> unableHandleSetPersonObject()}>
+              用函式處理
+            </button>
+              <button onClick={()=> setPersonObject_1()}>
+              這要調度會成功
+            </button>
+              <button onClick={()=> setPersonObject_2()}>
+              這也是一種做法
+            </button>
+              <button onClick={()=> setPersonObject_3()}>
+              這將只調度一次
+            </button>
+              <button onClick={()=> setPersonObject_4()}>
+              這會成功觸發兩次
+            </button>
+          </nav>
+          <p>
+              姓名：{personObject.firstName} {personObject.lastName}
+              <br /> 年紀：{personObject.age}
+              <br /> 信箱：{personObject.email}
+              <br />
+          </p>
+      </article>
+      ); }; const App = () => { return (
+      <main className='container'>
+          <ArrayOperateComponent />
+          <br />
+          <ObjectOperateComponent />
+      </main>
+      ); }; ReactDOM.render(
+
+      <App />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
