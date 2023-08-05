@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- 不要使用他在正式的專案上 -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState } = React; const App = () => { const [count, setCount] = useState(0); // 因為實際上為了效能，React 會將多次調用的 setCount 合併成一次，因此只有最後一次的 count 會被使用 const numberCount_1 = () => { console.log('我正在執行 numberCount_1'); console.log(count); setCount(count+
+        1); console.log(count); setCount(count + 1); console.log(count); }; // 但我們可以藉由函式包覆的方式，讓每次調用的 count 都是最新的，而不是被合併，因此可以正確的累加，但效能會較差 const numberCount_2 = () => { console.log('我正在執行 numberCount_2'); setCount((prevValue) => { console.log(prevValue);
+        return prevValue + 1; }); setCount((prevValue) => prevValue + 1); setCount((prevValue) => prevValue + 1); }; console.log('-----------------'); console.log('我被重建了'); console.log('-----------------'); return (
+        <main>
+            <p>Count: {count}</p>
+            <button onClick={()=> setCount(count + 1)}>
+        直接調用 set 函式
+      </button>
+            <button onClick={()=> numberCount_1()}>
+        使用函式包覆並多次調度
+      </button>
+            <button onClick={()=> numberCount_2()}>
+        使用函式包覆並修改操作方式
+      </button>
+            <button onClick={()=> {
+          setCount(count + 1);
+          setCount(count + 1);
+          setCount(count + 1);
+        }}
+      >
+        這等於 numberCount_1 的方式
+      </button>
+        </main>
+        ); }; ReactDOM.render(
+
+        <App />, document.getElementById('root'));
+    </script>
+  </body>
+</html>

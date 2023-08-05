@@ -14,10 +14,27 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <!-- <div id="root"></div> -->
+    <!-- <div id="example">another example test</div> -->
+    <div id="example3">3rd step: if change the example element2</div>
     <script type="text/babel">
-      const element = <h1 className="foo">about test</h1>;
+      const element0 = <h1 className="foo">about test</h1>; // ReactDOM.render(element, document.getElementById("root")); const element1 =
+      <h1 class="foo">about test2 </h1>;
       ReactDOM.render(element, document.getElementById("root"));
+      ReactDOM.render(element, document.getElementById("example"));
+      function tick() {
+        const element2 = (
+          <div>
+            <h1>hey test!</h1>
+            <h2>iga hai {new Date().toLocaleTimeString()}.</h2>
+          </div>
+        );
+        ReactDOM.render(element2, document.getElementById("example"));
+      }
+      setInterval(tick, 1);
+      const App = () => {
+        const [personObject, setPersonObject] = useState({ firstName: "John" });
+      };
     </script>
   </body>
 </html>
