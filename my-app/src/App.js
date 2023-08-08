@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 function App() {
+    const comments =["Thank you","3q","2","hey"];
     return (
    <ul className="comments">
-    <li>3q</li>
-    <li>I do miss u</li>
-    <li>now or never</li>
+    <li>{comments[0]}</li>
+    <li>{comments[1]}</li>
+    <li>{comments[2]}</li>
    </ul>
 
 
