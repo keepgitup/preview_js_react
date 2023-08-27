@@ -1,4 +1,5 @@
 import { Form } from 'react-router-dom';
+import React from 'react';
 
 export default function Contact() {
   const contact = {
@@ -13,7 +14,7 @@ export default function Contact() {
   return (
     <div id='contact'>
       <div>
-        <img key={contact.avatar} alt='avatar' src={contact.avatar || null} />
+        <img key={contact.avatar} src={contact.avatar || null} />
       </div>
 
       <div>
@@ -30,7 +31,7 @@ export default function Contact() {
 
         {contact.twitter && (
           <p>
-            <a target='_blank' rel="noreferrer" href={`https://twitter.com/${contact.twitter}`}>
+            <a target='_blank' href={`https://twitter.com/${contact.twitter}`}>
               {contact.twitter}
             </a>
           </p>
