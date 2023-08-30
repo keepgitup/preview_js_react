@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom/client'
 import "reset-css"
 //UI框架的樣式
 
-//全局樣式
-import "./assets/styles/global.scss"
+//全局樣式 (絕對路徑)
+import "@/assets/styles/global.scss"
 
 //組件的樣式
 import App from './App.tsx'
