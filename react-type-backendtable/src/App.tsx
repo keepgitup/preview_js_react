@@ -1,4 +1,4 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 //import Comp1 from './components/Comp1' //屬於全局引入 會全部變紅
 //import Comp2 from './components/Comp2'
 import {Button} from 'antd';
@@ -7,7 +7,7 @@ import{UpCircleOutlined} from '@ant-design/icons';
 //import 'antd/dist/antd.css';// or'antd/dist/antd.less';
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0)
 
   return (
 
